@@ -1,46 +1,81 @@
-# Getting Started with Create React App
+# Frontend Mentor - Recipe page solution
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a solution to the [Recipe page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/recipe-page-KiTsR8QQKm). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-### `npm start`
+## Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Screenshot
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![Project screenshot](./screenshot.png)
 
-### `npm test`
+### Links
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Solution URL: [Add solution URL here](https://github.com/JoshuaAsistio/recipe-page-2)
+- Live Site URL: [Add live site URL here](https://recipe-page-2.onrender.com)
 
-### `npm run build`
+## My process
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Built with
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Semantic HTML5 markup
+- CSS Grid
+- Mobile-first workflow
+- [React](https://reactjs.org/) - JS library
+- [Typescript](https://www.typescriptlang.org/) - Javascript with typing
+- [Tailwind](https://tailwindcss.com/) - For styles
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### What I learned
 
-### `npm run eject`
+When you're trying to import images into your project using Typescript with React, you will get an error saying "Cannot find module or its corresponding type declarations". To make this error go away, you need to create a {fileName}.d.ts file in the src directory of your project with filName standing in as a substitute for whatever you want to name your file. The only important thing is that it has the .d.ts file extension
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Inside of the .d.ts file you created you need to put the following lines of code:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```js
+declare module "*.jpeg" {
+  const value: string;
+  export default value;
+}
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+declare module "*.jpg" {
+  const value: string;
+  export default value;
+}
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+declare module "*.png" {
+  const value: string;
+  export default value;
+}
 
-## Learn More
+declare module "*.svg" {
+  import React from "react";
+  const value: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
+  export default value;
+}
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Doing this will make the error go away.
+
+### Useful resources
+
+- [ChatGPT](https://chatgpt.com/) - This helped me understand the error I mentioned in the previous section and it helped me make the error go away.
+
+## Author
+
+- Website - [Joshua Asistio](https://joshuaasistio.github.io/portfolio/)
+- Frontend Mentor - [@JoshuaAsistio](https://www.frontendmentor.io/profile/JoshuaAsistio)
+- Github - [@JoshuaAsistio](https://github.com/JoshuaAsistio)
